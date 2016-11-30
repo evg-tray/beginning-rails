@@ -1,1 +1,1 @@
-# beginning-rails
+# Educational RoR application of thincknetica base course
