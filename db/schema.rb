@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20161130163709) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_routes_on_name"
   end
 
   create_table "trains", force: :cascade do |t|
