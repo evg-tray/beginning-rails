@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class RailwaysStationsControllerTest < ActionDispatch::IntegrationTest
+class RailwayStationsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @railways_station = railways_stations(:one)
+    @railway_station = railway_stations(:one)
   end
 
   test "should get index" do
-    get railways_stations_url
+    get railway_stations_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_railways_station_url
+    get new_railway_station_url
     assert_response :success
   end
 
-  test "should create railways_station" do
-    assert_difference('RailwaysStation.count') do
-      post railways_stations_url, params: { railways_station: { title: @railways_station.title } }
+  test "should create railway_station" do
+    assert_difference('RailwayStation.count') do
+      post railway_stations_url, params: { railway_station: { title: @railway_station.title } }
     end
 
-    assert_redirected_to railways_station_url(RailwaysStation.last)
+    assert_redirected_to railway_station_url(RailwayStation.last)
   end
 
-  test "should show railways_station" do
-    get railways_station_url(@railways_station)
+  test "should show railway_station" do
+    get railway_station_url(@railway_station)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_railways_station_url(@railways_station)
+    get edit_railway_station_url(@railway_station)
     assert_response :success
   end
 
-  test "should update railways_station" do
-    patch railways_station_url(@railways_station), params: { railways_station: { title: @railways_station.title } }
-    assert_redirected_to railways_station_url(@railways_station)
+  test "should update railway_station" do
+    patch railway_station_url(@railway_station), params: { railway_station: { title: @railway_station.title } }
+    assert_redirected_to railway_station_url(@railway_station)
   end
 
-  test "should destroy railways_station" do
-    assert_difference('RailwaysStation.count', -1) do
-      delete railways_station_url(@railways_station)
+  test "should destroy railway_station" do
+    assert_difference('RailwayStation.count', -1) do
+      delete railway_station_url(@railway_station)
     end
 
-    assert_redirected_to railways_stations_url
+    assert_redirected_to railway_stations_url
   end
 end
