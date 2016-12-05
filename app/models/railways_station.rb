@@ -1,2 +1,0 @@
-class RailwaysStation < ApplicationRecord
-end
