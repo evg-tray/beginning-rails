@@ -4,25 +4,9 @@
   <strong>Название:</strong>
   <%= @route.name %>
   <br>
-  <strong>Список поездов на маршруте:</strong>
+  <%= render 'trains' %>
   <br>
-  <% if @route.trains %>
-    <% @route.trains.each do |train| %>
-      <%= train.number %><br>
-    <% end %>
-  <% else %>
-    нет поездов
-  <% end %>
-  <br>
-  <strong>Список станций в маршруте:</strong>
-  <br>
-  <% if @route.railway_stations.empty? %>
-    нет станций
-  <% else %>
-    <% @route.railway_stations.each do |station| %>
-      <%= station.title %><br>
-    <% end %>
-  <% end %>
+  <%= render 'stations' %>
 </p>
 
 <%= link_to 'Изменить', edit_route_path(@route) %> |
