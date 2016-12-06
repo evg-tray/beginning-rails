@@ -3,6 +3,10 @@
 <p>
   <strong>Название:</strong>
   <%= @route.name %>
+  <br>
+  <%= render 'trains' %>
+  <br>
+  <%= render 'stations' %>
 </p>
 
 <%= link_to 'Изменить', edit_route_path(@route) %> |

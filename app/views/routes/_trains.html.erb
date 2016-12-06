@@ -1,0 +1,9 @@
+<strong>Список поездов на маршруте:</strong>
+<br>
+<% if @route.trains %>
+    <% @route.trains.each do |train| %>
+        <%= train.number %><br>
+    <% end %>
+<% else %>
+    нет поездов
+<% end %>
