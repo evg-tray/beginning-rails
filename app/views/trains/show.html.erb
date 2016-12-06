@@ -5,11 +5,9 @@
   <%= @train.number %>
   <br>
   <strong>Маршрут:</strong>
-  <% if @train.route %>
-    <%= @train.route.name %>
-  <% else %>
-    не указан
-  <% end %>
+  <%= @train.route ? @train.route.name : 'не указан' %>
+  <br>
+  <%= render 'wagons' %>
 </p>
 
 <%= link_to 'Изменить', edit_train_path(@train) %> |
