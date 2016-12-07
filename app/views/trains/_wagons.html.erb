@@ -3,14 +3,8 @@
 <% if @train.wagons.empty? %>
     нет вагонов
 <% else %>
-    <% wagon_types = @train.wagons.to_a.group_by(&:wagon_type) %>
-    <% wagon_types.each do |wagon_type, wagons| %>
-        <%= "#{wagon_type.name}: #{wagons.count}" %>
-        <br>
+    <% @train.wagons.order(number: @train.order_from_head ? :asc : :desc).each do |wagon| %>
+      <%= link_to "#{wagon.number}", wagon %>
+      <br>
     <% end %>
-    <strong>Верхние места:</strong>
-    <%= @train.wagons.map(&:top_seats).reduce(:+) %>
-    <br>
-    <strong>Нижние места:</strong>
-    <%= @train.wagons.map(&:bottom_seats).reduce(:+) %>
 <% end %>

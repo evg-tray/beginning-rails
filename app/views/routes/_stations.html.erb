@@ -3,7 +3,7 @@
 <% if @route.railway_stations.empty? %>
     нет станций
 <% else %>
-    <% @route.railway_stations.each do |station| %>
+    <% @route.railway_stations.ordered.each do |station| %>
         <%= station.title %><br>
     <% end %>
 <% end %>

@@ -1,20 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Серийный номер:</strong>
-  <%= @wagon.serial_number %>
-  <br>
   <strong>Тип вагона:</strong>
-  <%= @wagon.wagon_type.name %>
+  <%= @wagon.type %>
+  <br>
+  <strong>Номер:</strong>
+  <%= @wagon.number ? @wagon.number : 'не указан' %>
   <br>
   <strong>Поезд:</strong>
   <%= @wagon.train ? @wagon.train.number : 'не указан' %>
   <br>
-  <strong>Количество верхних мест:</strong>
-  <%= @wagon.top_seats %>
-  <br>
-  <strong>Количество нижних мест:</strong>
-  <%= @wagon.bottom_seats %>
+  <%= render @wagon.type.downcase.to_s %>
 </p>
 
 <%= link_to 'Изменить', edit_wagon_path(@wagon) %> |

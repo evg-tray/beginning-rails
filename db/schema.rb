@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206161547) do
+ActiveRecord::Schema.define(version: 20161207185907) do
 
   create_table "railway_stations", force: :cascade do |t|
     t.string   "title"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20161206161547) do
   create_table "railway_stations_routes", force: :cascade do |t|
     t.integer "railway_station_id"
     t.integer "route_id"
+    t.integer "order"
   end
 
   create_table "routes", force: :cascade do |t|
@@ -44,10 +45,11 @@ ActiveRecord::Schema.define(version: 20161206161547) do
 
   create_table "trains", force: :cascade do |t|
     t.string   "number"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.integer  "current_station_id"
     t.integer  "route_id"
+    t.boolean  "order_from_head",    default: true
     t.index ["current_station_id"], name: "index_trains_on_current_station_id"
     t.index ["route_id"], name: "index_trains_on_route_id"
   end
@@ -57,16 +59,18 @@ ActiveRecord::Schema.define(version: 20161206161547) do
     t.index ["name"], name: "index_users_on_name"
   end
 
-  create_table "wagon_types", force: :cascade do |t|
-    t.string "name"
-  end
-
   create_table "wagons", force: :cascade do |t|
-    t.string  "serial_number"
-    t.integer "wagon_type_id"
-    t.integer "train_id"
-    t.integer "top_seats"
-    t.integer "bottom_seats"
+    t.integer  "number"
+    t.integer  "top_seats"
+    t.integer  "bottom_seats"
+    t.integer  "side_top_seats"
+    t.integer  "side_bottom_seats"
+    t.integer  "sit_down_seats"
+    t.integer  "train_id"
+    t.string   "type"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["train_id"], name: "index_wagons_on_train_id"
   end
 
 end
