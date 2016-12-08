@@ -3,7 +3,7 @@
 <% if @train.wagons.empty? %>
     нет вагонов
 <% else %>
-    <% @train.wagons.order(number: @train.order_from_head ? :asc : :desc).each do |wagon| %>
+    <% @train.wagons.order(number: @train.order_wagons).each do |wagon| %>
       <%= link_to "#{wagon.number}", wagon %>
       <br>
     <% end %>
