@@ -1,5 +1,6 @@
 class WagonsController < ApplicationController
   before_action :set_wagon, only:[:show, :update, :destroy, :edit]
+  before_action :set_train, only:[:new, :create]
 
   def index
     @wagons = Wagon.all
@@ -9,16 +10,16 @@ class WagonsController < ApplicationController
   end
 
   def new
-    @wagon = Wagon.new
+    @wagon = @train.wagons.new
   end
 
   def edit
   end
 
   def create
-    @wagon = Wagon.new(wagon_params)
+    @wagon = @train.wagons.new(wagon_params)
     if @wagon.save
-      redirect_to @wagon
+      redirect_to @train
     else
       render :new
     end
@@ -52,5 +53,9 @@ class WagonsController < ApplicationController
 
   def set_wagon
     @wagon = Wagon.find(params[:id])
+  end
+
+  def set_train
+    @train = Train.find(params[:train_id])
   end
 end

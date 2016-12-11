@@ -1,9 +1,42 @@
 <strong>Список станций в маршруте:</strong>
-<br>
 <% if @route.railway_stations.empty? %>
-    нет станций
+    <br>нет станций
 <% else %>
-    <% @route.railway_stations.ordered.each do |station| %>
-        <%= station.title %><br>
-    <% end %>
+    <table>
+      <thead>
+      <tr>
+        <th>Название</th>
+        <th>Позиция</th>
+        <th>Время</th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @route.railway_stations.ordered.each do |station| %>
+        <tr>
+          <td><%= station.title %></td>
+          <td>
+            <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+              <%= number_field_tag :position, station.position_in(@route) %>
+              <%= hidden_field_tag :route_id, @route.id %>
+              <%= submit_tag 'Изменить' %>
+            <% end %>
+          </td>
+          <td>
+            <%= form_tag update_time_railway_station_path(station), method: :patch do %>
+                <% arr_time = station.arrival(@route) %>
+                <% hour_arr = arr_time ? arr_time.hour : '12' %>
+                <% minute_arr = arr_time ? arr_time.min : '00'  %>
+                <% dep_time = station.departure(@route) %>
+                <% hour_dep = dep_time ? dep_time.hour : '12' %>
+                <% minute_dep = dep_time ? dep_time.min : '00' %>
+                Прибытие:<%= time_select :time, :arrival, :default => {hour: hour_arr, minute: minute_arr} %>
+                Отправление:<%= time_select :time, :departure, :default => {hour: hour_dep, minute: minute_dep} %>
+                <%= hidden_field_tag :route_id, @route.id %>
+                <%= submit_tag 'Изменить' %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 <% end %>

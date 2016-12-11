@@ -1,0 +1,20 @@
+<h1>Купить билет:</h1>
+<strong>Номер поезда:</strong>
+<%= @ticket.train ? @ticket.train.number : 'не указан' %>
+<br>
+<strong>Станция отправления:</strong>
+<%= @ticket.start_station ? @ticket.start_station.title : 'не указана' %>
+<br>
+<strong>Станция прибытия:</strong>
+<%= @ticket.end_station ? @ticket.end_station.title : 'не указана' %>
+<br>
+<%= form_for(@ticket) do |f| %>
+    <%= f.label :fio, 'ФИО' %>
+    <%= f.text_field :fio %>
+    <%= f.label :passport, 'Пасспорт' %>
+    <%= f.text_field :passport %>
+    <%= f.hidden_field :train_id %>
+    <%= f.hidden_field :start_station_id %>
+    <%= f.hidden_field :end_station_id %>
+    <%= f.submit 'Купить' %>
+<% end %>
