@@ -23,14 +23,8 @@
           </td>
           <td>
             <%= form_tag update_time_railway_station_path(station), method: :patch do %>
-                <% arr_time = station.arrival(@route) %>
-                <% hour_arr = arr_time ? arr_time.hour : '12' %>
-                <% minute_arr = arr_time ? arr_time.min : '00'  %>
-                <% dep_time = station.departure(@route) %>
-                <% hour_dep = dep_time ? dep_time.hour : '12' %>
-                <% minute_dep = dep_time ? dep_time.min : '00' %>
-                Прибытие:<%= time_select :time, :arrival, :default => {hour: hour_arr, minute: minute_arr} %>
-                Отправление:<%= time_select :time, :departure, :default => {hour: hour_dep, minute: minute_dep} %>
+                Прибытие:<%= time_select :time, :arrival, :default => date_to_time(station.arrival(@route)) %>
+                Отправление:<%= time_select :time, :departure, :default => date_to_time(station.departure(@route)) %>
                 <%= hidden_field_tag :route_id, @route.id %>
                 <%= submit_tag 'Изменить' %>
             <% end %>

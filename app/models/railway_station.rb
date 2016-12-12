@@ -29,6 +29,6 @@ class RailwayStation < ApplicationRecord
   private
 
   def station_route(route)
-    @station_route ||= railway_stations_routes.where(route: route).first
+    @station_route ||= railway_stations_routes.find_by(route: route)
   end
 end
