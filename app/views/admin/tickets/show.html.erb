@@ -1,0 +1,22 @@
+<h1>Информация о билете:</h1>
+<strong>Пользователь</strong>
+<%= @ticket.user ? @ticket.user.name : 'не указан' %>
+<br>
+<strong>Номер поезда</strong>
+<%= @ticket.train ? @ticket.train.number : 'не указан' %>
+<br>
+<strong>Станция отправления</strong>
+<%= @ticket.start_station ? @ticket.start_station.title : 'не указана' %>
+<br>
+<strong>Станция прибытия</strong>
+<%= @ticket.end_station ? @ticket.end_station.title : 'не указана' %>
+<br>
+<strong>ФИО:</strong>
+<%= @ticket.fio ? @ticket.fio : 'не указано' %>
+<br>
+<strong>Пасспорт:</strong>
+<%= @ticket.passport ? @ticket.passport : 'не указан' %>
+<br>
+<%= link_to 'Изменить', edit_admin_ticket_path(@ticket) %>
+<br>
+<%= link_to 'Назад', admin_tickets_path %>

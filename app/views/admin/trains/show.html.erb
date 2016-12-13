@@ -1,0 +1,14 @@
+<p>
+  <strong>Номер:</strong>
+  <%= @train.number %>
+  <br>
+  <strong>Маршрут:</strong>
+  <%= @train.route ? @train.route.name : 'не указан' %>
+  <br>
+  <strong>Сортировка вагонов с <%= @train.order_from_head ? 'головы' : 'хвоста' %></strong>
+  <br>
+  <%= render 'wagons' %>
+</p>
+
+<%= link_to 'Изменить', edit_admin_train_path(@train) %> |
+<%= link_to 'Назад', admin_trains_path %>

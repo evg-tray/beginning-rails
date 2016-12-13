@@ -1,0 +1,19 @@
+<h1>Вагоны</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Тип вагона / номер</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <%= render 'wagon', wagons: @wagons %>
+  </tbody>
+
+</table>
+
+<br>
+
+<%= link_to 'Новый вагон', new_admin_wagon_path %>

@@ -1,0 +1,11 @@
+<strong>Вагоны в составе:</strong>
+<br>
+<% if @train.wagons.empty? %>
+    нет вагонов
+<% else %>
+    <% @train.wagons.order(number: @train.order_wagons).each do |wagon| %>
+      <%= link_to "Вагон №#{wagon.number}", [:admin, wagon] %>
+      <br>
+    <% end %>
+<% end %>
+<%= link_to 'Новый вагон', new_admin_train_wagon_path(@train) %>

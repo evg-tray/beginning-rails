@@ -1,6 +1,5 @@
-<h1>Beginnig-rails!</h1>
-<%= link_to 'Станции', railway_stations_path %>
-<br>
-<%= link_to 'Поезда', trains_path %>
-<br>
-<%= link_to 'Маршруты', routes_path %>
+<p>
+  <%= link_to 'Поиск билетов', search_path %>
+  <br>
+  <%= link_to 'Мои билеты', tickets_path if current_user && !current_user.admin? %>
+</p>
