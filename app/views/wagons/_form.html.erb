@@ -1,16 +1,12 @@
-<%= form_for(wagon) do |f| %>
+<% new_record = wagon.new_record? %>
+<%= form_for new_record ? [train, wagon] : wagon do |f| %>
     <%= render 'common/errors', resource: wagon %>
-    <% new_record = wagon.new_record? %>
     <% if new_record %>
       <div class="field">
         <%= f.label :type, 'Тип вагона' %>
         <%= f.select :type, ['CoupeWagon', 'ReservedWagon', 'SvWagon', 'SitDownWagon'] %>
       </div>
     <% end %>
-    <div class="field">
-      <%= f.label :train, 'Поезд' %>
-      <%= f.collection_select :train_id, Train.all, :id, :number, :include_blank => true %>
-    </div>
     <% if new_record || ['CoupeWagon', 'ReservedWagon', 'SvWagon'].include?(wagon.type) %>
       <% if new_record || wagon.type != 'SvWagon' %>
         <div class="field">

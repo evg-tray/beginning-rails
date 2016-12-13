@@ -1,0 +1,40 @@
+<h1>Поиск билетов</h1>
+<%= form_for @search, url: search_path do |f| %>
+  Начальная станция:
+  <%= f.collection_select :start_station_id, RailwayStation.all, :id, :title %>
+  Конечная станция:
+  <%= f.collection_select :end_station_id, RailwayStation.all, :id, :title %>
+  <%= f.submit 'Поиск' %>
+<% end %>
+
+<% if @result %>
+    <table>
+      <thead>
+        <tr>
+          <th>Поезд</th>
+          <th>Время отправления</th>
+          <th>Время прибытия</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @result.each do |res| %>
+          <tr>
+            <td><%= res['number'] %></td>
+            <% dep_time = res['departure'].to_time %>
+            <% arr_time = res['arrival'].to_time %>
+            <td><%= "#{dep_time.hour}:#{dep_time.min}" %></td>
+            <td><%= "#{arr_time.hour}:#{arr_time.min}" %></td>
+            <td>
+              <%= form_tag new_ticket_path do %>
+                <%= hidden_field_tag :train_id, res['id'] %>
+                <%= hidden_field_tag :start_station_id, @search.start_station_id %>
+                <%= hidden_field_tag :end_station_id, @search.end_station_id %>
+                <%= submit_tag 'Купить билеть' %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+<% end %>
