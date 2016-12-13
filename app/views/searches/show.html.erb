@@ -34,7 +34,7 @@
               <% end %>
             </td>
             <td>
-              <% if current_user.admin? %>
+              <% if current_user && current_user.admin? %>
                 <%= form_tag admin_buy_ticket_path do %>
                   <%= hidden_field_tag :train_id, res['id'] %>
                   <%= hidden_field_tag :start_station_id, @search.start_station_id %>
