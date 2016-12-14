@@ -17,5 +17,5 @@
     <%= f.hidden_field :train_id %>
     <%= f.hidden_field :start_station_id %>
     <%= f.hidden_field :end_station_id %>
-    <%= f.submit ticket.new_record? ? 'Купить' : 'Изменить' %>
+    <%= f.submit ticket.new_record? ? 'Купить' : 'Изменить', class: 'btn btn-primary' %>
 <% end %>

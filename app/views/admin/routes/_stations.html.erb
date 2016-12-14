@@ -2,7 +2,7 @@
 <% if @route.railway_stations.empty? %>
     <br>нет станций
 <% else %>
-    <table>
+    <table class="table">
       <thead>
       <tr>
         <th>Название</th>
@@ -18,7 +18,7 @@
             <%= form_tag update_position_admin_railway_station_path(station), method: :patch do %>
               <%= number_field_tag :position, station.position_in(@route) %>
               <%= hidden_field_tag :route_id, @route.id %>
-              <%= submit_tag 'Изменить' %>
+              <%= submit_tag 'Изменить', class: 'btn btn-warning' %>
             <% end %>
           </td>
           <td>
@@ -26,7 +26,7 @@
                 Прибытие:<%= time_select :time, :arrival, :default => date_to_time(station.arrival(@route)) %>
                 Отправление:<%= time_select :time, :departure, :default => date_to_time(station.departure(@route)) %>
                 <%= hidden_field_tag :route_id, @route.id %>
-                <%= submit_tag 'Изменить' %>
+                <%= submit_tag 'Изменить', class: 'btn btn-warning' %>
             <% end %>
           </td>
         </tr>

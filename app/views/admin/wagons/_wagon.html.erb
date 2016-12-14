@@ -1,8 +1,8 @@
 <% wagons.each do |wagon| %>
     <tr>
       <td><%= "#{wagon.type} №#{wagon.number}" %></td>
-      <td><%= link_to 'Показать', [:admin, wagon] %></td>
-      <td><%= link_to 'Изменить', edit_admin_wagon_path(wagon) %></td>
-      <td><%= link_to 'Удалить', [:admin, wagon], method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+      <td><%= link_to 'Показать', [:admin, wagon], class: 'btn btn-success' %></td>
+      <td><%= link_to 'Изменить', edit_admin_wagon_path(wagon), class: 'btn btn-warning' %></td>
+      <td><%= link_to 'Удалить', [:admin, wagon], class: 'btn btn-danger', method: :delete, data: { confirm: 'Вы уверены?' } %></td>
     </tr>
 <% end %>

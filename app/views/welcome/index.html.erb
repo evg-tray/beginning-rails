@@ -1,5 +1,3 @@
-<p>
-  <%= link_to 'Поиск билетов', search_path %>
-  <br>
-  <%= link_to 'Мои билеты', tickets_path if current_user && !current_user.admin? %>
-</p>
+<%= link_to t('.search_tickets'), search_path, class: 'btn btn-link' %>
+<br>
+<%= link_to t('.my_tickets'), tickets_path, class: 'btn btn-link' if current_user && !current_user.admin? %>

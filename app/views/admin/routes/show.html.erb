@@ -7,5 +7,5 @@
   <%= render 'stations' %>
 </p>
 
-<%= link_to 'Изменить', edit_admin_route_path(@route) %> |
-<%= link_to 'Назад', admin_routes_path %>
+<%= link_to 'Изменить', edit_admin_route_path(@route), class: 'btn btn-warning' %> |
+<%= link_to 'Назад', admin_routes_path, class: 'btn btn-default' %>

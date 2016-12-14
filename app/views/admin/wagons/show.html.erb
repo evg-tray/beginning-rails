@@ -11,5 +11,5 @@
   <%= render @wagon.type.downcase.to_s %>
 </p>
 
-<%= link_to 'Изменить', edit_admin_wagon_path(@wagon) %> |
-<%= link_to 'Назад', [:admin, @wagon.train] %>
+<%= link_to 'Изменить', edit_admin_wagon_path(@wagon), class: 'btn btn-warning' %> |
+<%= link_to 'Назад', [:admin, @wagon.train], class: 'btn btn-default' %>

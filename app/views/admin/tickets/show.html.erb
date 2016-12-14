@@ -17,6 +17,5 @@
 <strong>Пасспорт:</strong>
 <%= @ticket.passport ? @ticket.passport : 'не указан' %>
 <br>
-<%= link_to 'Изменить', edit_admin_ticket_path(@ticket) %>
-<br>
-<%= link_to 'Назад', admin_tickets_path %>
+<%= link_to 'Изменить', edit_admin_ticket_path(@ticket), class: 'btn btn-warning' %> |
+<%= link_to 'Назад', admin_tickets_path, class: 'btn btn-default' %>
