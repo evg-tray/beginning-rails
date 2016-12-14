@@ -1,0 +1,11 @@
+<p>
+  <strong>Название:</strong>
+  <%= @route.name %>
+  <br>
+  <%= render 'trains' %>
+  <br>
+  <%= render 'stations' %>
+</p>
+
+<%= link_to 'Изменить', edit_admin_route_path(@route) %> |
+<%= link_to 'Назад', admin_routes_path %>

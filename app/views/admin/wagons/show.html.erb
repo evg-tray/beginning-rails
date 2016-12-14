@@ -1,0 +1,15 @@
+<p>
+  <strong>Тип вагона:</strong>
+  <%= @wagon.type %>
+  <br>
+  <strong>Номер:</strong>
+  <%= @wagon.number ? @wagon.number : 'не указан' %>
+  <br>
+  <strong>Поезд:</strong>
+  <%= @wagon.train ? @wagon.train.number : 'не указан' %>
+  <br>
+  <%= render @wagon.type.downcase.to_s %>
+</p>
+
+<%= link_to 'Изменить', edit_admin_wagon_path(@wagon) %> |
+<%= link_to 'Назад', [:admin, @wagon.train] %>

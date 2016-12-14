@@ -1,8 +1,0 @@
-<% wagons.each do |wagon| %>
-    <tr>
-      <td><%= "#{wagon.type} №#{wagon.number}" %></td>
-      <td><%= link_to 'Показать', wagon %></td>
-      <td><%= link_to 'Изменить', edit_wagon_path(wagon) %></td>
-      <td><%= link_to 'Удалить', wagon, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
-    </tr>
-<% end %>

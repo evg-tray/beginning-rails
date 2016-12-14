@@ -14,7 +14,7 @@
           <th>Поезд</th>
           <th>Время отправления</th>
           <th>Время прибытия</th>
-          <th></th>
+          <th colspan="2"></th>
         </tr>
       </thead>
       <tbody>
@@ -26,11 +26,21 @@
             <td><%= "#{dep_time.hour}:#{dep_time.min}" %></td>
             <td><%= "#{arr_time.hour}:#{arr_time.min}" %></td>
             <td>
-              <%= form_tag new_ticket_path do %>
+              <%= form_tag buy_ticket_path do %>
                 <%= hidden_field_tag :train_id, res['id'] %>
                 <%= hidden_field_tag :start_station_id, @search.start_station_id %>
                 <%= hidden_field_tag :end_station_id, @search.end_station_id %>
                 <%= submit_tag 'Купить билеть' %>
+              <% end %>
+            </td>
+            <td>
+              <% if current_user && current_user.admin? %>
+                <%= form_tag admin_buy_ticket_path do %>
+                  <%= hidden_field_tag :train_id, res['id'] %>
+                  <%= hidden_field_tag :start_station_id, @search.start_station_id %>
+                  <%= hidden_field_tag :end_station_id, @search.end_station_id %>
+                  <%= submit_tag 'Купить пользователю' %>
+                <% end %>
               <% end %>
             </td>
           </tr>
