@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resource :search, only: [:show, :create]
   resources :tickets, only: [:show, :create, :new, :index, :destroy]
-  match "/tickets/new" => "tickets#new", :via => :post, :as => :buy_ticket
+  match "/tickets/buy" => "tickets#new", :via => :post, :as => :buy_ticket
   namespace :admin do
     get 'main/index'
     root 'main#index'
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
     resources :routes
     resources :tickets
-    match "/tickets/new" => "tickets#new", :via => :post, :as => :buy_ticket
+    match "/tickets/buy" => "tickets#new", :via => :post, :as => :buy_ticket
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
