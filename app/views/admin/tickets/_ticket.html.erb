@@ -3,7 +3,7 @@
   <td><%= ticket.train.number %></td>
   <td><%= ticket.start_station.title %></td>
   <td><%= ticket.end_station.title %></td>
-  <td><%= link_to 'Показать', [:admin, ticket] %></td>
-  <td><%= link_to 'Изменить', edit_admin_ticket_path(ticket) %></td>
-  <td><%= link_to 'Удалить', [:admin, ticket], method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+  <td><%= link_to 'Показать', [:admin, ticket], class: 'btn btn-success' %></td>
+  <td><%= link_to 'Изменить', edit_admin_ticket_path(ticket), class: 'btn btn-warning' %></td>
+  <td><%= link_to 'Удалить', [:admin, ticket], class: 'btn btn-danger', method: :delete, data: { confirm: 'Вы уверены?' } %></td>
 </tr>

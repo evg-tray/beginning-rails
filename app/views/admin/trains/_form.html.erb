@@ -14,6 +14,6 @@
     <%= f.check_box :order_from_head %>
   </div>
   <div class="actions">
-    <%= f.submit "#{train.new_record? ? 'Создать' : 'Изменить'}" %>
+    <%= f.submit "#{train.new_record? ? 'Создать' : 'Изменить'}", class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -1,0 +1,24 @@
+ru:
+  common:
+    errors: 'При заполнении формы возникли ошибки'
+  searches:
+    show:
+      title: 'Поиск билетов'
+      start_station: 'Начальная станция'
+      end_station: 'Конечная станция'
+      submit: 'Поиск'
+      train: 'Поезд'
+      time_arrival: 'Время прибытия'
+      time_departure: 'Время отправления'
+      submit_buy_ticket: 'Купить билет'
+      submit_buy_ticket_user: 'Купить пользователю'
+  welcome:
+    index:
+      my_tickets: 'Мои билеты'
+      search_tickets: 'Поиск билетов'
+  tickets:
+    index:
+      title: 'Ваши билеты'
+      train_number: 'Номер поезда'
+      departure_station: 'Станция отправления'
+      arrival_station: 'Станция прибытия'

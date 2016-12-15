@@ -1,19 +1,19 @@
-<h1>Поиск билетов</h1>
+<h1><%= t('.title') %></h1>
 <%= form_for @search, url: search_path do |f| %>
-  Начальная станция:
+  <%= t('.start_station') %>
   <%= f.collection_select :start_station_id, RailwayStation.all, :id, :title %>
-  Конечная станция:
+  <%= t('.end_station') %>
   <%= f.collection_select :end_station_id, RailwayStation.all, :id, :title %>
-  <%= f.submit 'Поиск' %>
+  <%= f.submit t('.submit') %>
 <% end %>
 
 <% if @result %>
-    <table>
+    <table class="table">
       <thead>
         <tr>
-          <th>Поезд</th>
-          <th>Время отправления</th>
-          <th>Время прибытия</th>
+          <th><%= t('.train') %></th>
+          <th><%= t('.time_departure') %></th>
+          <th><%= t('.time_arrival') %></th>
           <th colspan="2"></th>
         </tr>
       </thead>
@@ -30,7 +30,7 @@
                 <%= hidden_field_tag :train_id, res['id'] %>
                 <%= hidden_field_tag :start_station_id, @search.start_station_id %>
                 <%= hidden_field_tag :end_station_id, @search.end_station_id %>
-                <%= submit_tag 'Купить билеть' %>
+                <%= submit_tag t('.submit_buy_ticket'), class: 'btn btn-success' %>
               <% end %>
             </td>
             <td>
@@ -39,7 +39,7 @@
                   <%= hidden_field_tag :train_id, res['id'] %>
                   <%= hidden_field_tag :start_station_id, @search.start_station_id %>
                   <%= hidden_field_tag :end_station_id, @search.end_station_id %>
-                  <%= submit_tag 'Купить пользователю' %>
+                  <%= submit_tag t('.submit_buy_ticket_user'), class: 'btn btn-warning' %>
                 <% end %>
               <% end %>
             </td>
