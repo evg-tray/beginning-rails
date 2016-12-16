@@ -89,7 +89,7 @@ Rails.application.configure do
   #config.action_mailer.postmark_settings = { api_token: ENV['POSTMARK_API_TOKEN'] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address => 'ssl://smtp.mail.ru',
+      :address => 'smtp.mail.ru',
       :port => 465,
       :user_name => ENV['USER_NAME_SMTP'],
       :password => ENV['PASSWORD_SMTP'],
