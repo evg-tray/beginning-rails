@@ -45,7 +45,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Поиск билетов</a>
+    <%= link_to 'Поиск билетов', root_path, class: 'navbar-brand' %>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
