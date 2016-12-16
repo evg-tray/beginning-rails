@@ -210,6 +210,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   listen (~> 3.0.5)
+  mail
   pg
   postmark-rails (>= 0.10.0)
   puma (~> 3.0)
