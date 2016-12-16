@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'heroku.test@scrapmaker.ru'
+  default from: 'asfgswert@mail.ru'
   layout 'mailer'
 end
