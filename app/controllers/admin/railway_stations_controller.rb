@@ -46,14 +46,14 @@ class Admin::RailwayStationsController < Admin::BaseController
 
   def update_position
     @railway_station.update_position(@route, params[:position])
-    redirect_to @route
+    redirect_to [:admin, @route]
   end
 
   def update_time
     departure = "#{params[:time]['departure(4i)']}:#{params[:time]['departure(5i)']}"
     arrival = "#{params[:time]['arrival(4i)']}:#{params[:time]['arrival(5i)']}"
     @railway_station.update_time(@route, departure, arrival)
-    redirect_to @route
+    redirect_to [:admin, @route]
   end
 
   private
