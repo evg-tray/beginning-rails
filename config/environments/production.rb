@@ -95,7 +95,8 @@ Rails.application.configure do
       :password => ENV['PASSWORD_SMTP'],
       :authentication => :plain,
       :enable_starttls_auto => true,
-      :openssl_verify_mode => 'none'
+      :openssl_verify_mode => 'none',
+      :tls => true
   }
   config.action_mailer.raise_delivery_errors = true
 end
