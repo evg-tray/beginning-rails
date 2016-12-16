@@ -97,4 +97,5 @@ Rails.application.configure do
       :enable_starttls_auto => true,
       :openssl_verify_mode => 'none'
   }
+  config.action_mailer.raise_delivery_errors = true
 end
