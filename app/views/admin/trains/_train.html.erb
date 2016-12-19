@@ -1,5 +1,11 @@
 <tr>
-  <td><%= train.number %></td>
+  <td>
+    <div id="title_train_<%= train.id %>">
+      <%= train.number %>
+      <%= link_to 'Изменить', '', class: 'btn btn-primary edit_train', data: { train_id: train.id } %>
+    </div>
+    <%= render 'inlineform', train: train %>
+  </td>
   <td><%= link_to 'Показать', [:admin, train], class: 'btn btn-success' %></td>
   <td><%= link_to 'Изменить', edit_admin_train_path(train), class: 'btn btn-warning' %></td>
   <td><%= link_to 'Удалить', [:admin, train], class: 'btn btn-danger', method: :delete, data: { confirm: 'Вы уверены?' } %></td>

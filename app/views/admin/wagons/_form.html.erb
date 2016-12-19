@@ -1,41 +1,32 @@
-<% new_record = wagon.new_record? %>
-<%= form_for new_record ? [:admin, train, wagon] : [:admin, wagon] do |f| %>
+<%= form_for wagon.new_record? ? [:admin, train, wagon] : [:admin, wagon] do |f| %>
     <%= render 'common/errors', resource: wagon %>
-    <% if new_record %>
-      <div class="field">
-        <%= f.label :type, 'Тип вагона' %>
-        <%= f.select :type, ['CoupeWagon', 'ReservedWagon', 'SvWagon', 'SitDownWagon'] %>
-      </div>
-    <% end %>
-    <% if new_record || ['CoupeWagon', 'ReservedWagon', 'SvWagon'].include?(wagon.type) %>
-      <% if new_record || wagon.type != 'SvWagon' %>
-        <div class="field">
-          <%= f.label :top_seats, 'Количество верхних мест' %>
-          <%= f.text_field :top_seats %>
-        </div>
-      <% end %>
-      <div class="field">
-        <%= f.label :bottom_seats, 'Количество нижних мест' %>
-        <%= f.text_field :bottom_seats %>
-      </div>
-      <% if new_record || wagon.type == 'ReservedWagon' %>
-        <div class="field">
-          <%= f.label :side_top_seats, 'Количество верхних боковых мест' %>
-          <%= f.text_field :side_top_seats %>
-        </div>
-        <div class="field">
-          <%= f.label :side_bottom_seats, 'Количество нижних боковых мест' %>
-          <%= f.text_field :side_bottom_seats %>
-        </div>
-      <% end %>
-    <% end %>
-    <% if new_record || wagon.type == 'SitDownWagon' %>
-      <div class="field">
-        <%= f.label :sit_down_seats, 'Количество сидячих мест' %>
-        <%= f.text_field :sit_down_seats %>
-      </div>
-    <% end %>
+    <div class="field">
+      <%= f.label :type, 'Тип вагона' %>
+      <%= f.select :type, ['CoupeWagon', 'ReservedWagon', 'SvWagon', 'SitDownWagon'] %>
+    </div>
+
+    <div class="field counts CoupeWagon ReservedWagon">
+      <%= f.label :top_seats, 'Количество верхних мест' %>
+      <%= f.text_field :top_seats %>
+    </div>
+    <div class="field counts CoupeWagon ReservedWagon SvWagon">
+      <%= f.label :bottom_seats, 'Количество нижних мест' %>
+      <%= f.text_field :bottom_seats %>
+    </div>
+    <div class="field counts ReservedWagon">
+      <%= f.label :side_top_seats, 'Количество верхних боковых мест' %>
+      <%= f.text_field :side_top_seats %>
+    </div>
+    <div class="field counts ReservedWagon">
+      <%= f.label :side_bottom_seats, 'Количество нижних боковых мест' %>
+      <%= f.text_field :side_bottom_seats %>
+    </div>
+    <div class="field counts SitDownWagon">
+      <%= f.label :sit_down_seats, 'Количество сидячих мест' %>
+      <%= f.text_field :sit_down_seats %>
+    </div>
+
     <div class="actions">
-      <%= f.submit "#{new_record ? 'Создать' : 'Изменить'}", class: 'btn btn-primary' %>
+      <%= f.submit "#{wagon.new_record? ? 'Создать' : 'Изменить'}", class: 'btn btn-primary' %>
     </div>
 <% end %>

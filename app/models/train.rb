@@ -11,4 +11,8 @@ class Train < ApplicationRecord
   def count_seats_by_type(wagon_type, seats_type)
     wagons.where(type: wagon_type).sum(seats_type)
   end
+
+  def update_number(route, number)
+    route.update(number: number)
+  end
 end

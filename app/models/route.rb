@@ -4,4 +4,8 @@ class Route < ApplicationRecord
   has_many :railway_stations, through: :railway_stations_routes
 
   validates :name, presence: true
+
+  def update_name(route, name)
+    route.update(name: name)
+  end
 end

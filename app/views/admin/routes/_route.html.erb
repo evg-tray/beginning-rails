@@ -1,5 +1,11 @@
 <tr>
-  <td><%= route.name %></td>
+  <td>
+    <div id="title_route_<%= route.id %>">
+      <%= route.name %>
+      <%= link_to 'Изменить', '', class: 'btn btn-primary edit_route', data: { route_id: route.id } %>
+    </div>
+    <%= render 'inlineform', route: route %>
+  </td>
   <td><%= link_to 'Показать', [:admin, route], class: 'btn btn-success' %></td>
   <td><%= link_to 'Изменить', edit_admin_route_path(route), class: 'btn btn-warning' %></td>
   <td><%= link_to 'Удалить', [:admin, route], class: 'btn btn-danger', method: :delete, data: { confirm: 'Вы уверены?' } %></td>

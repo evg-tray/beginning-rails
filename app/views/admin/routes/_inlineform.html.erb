@@ -1,0 +1,11 @@
+<%= form_tag update_name_admin_route_path(route), method: :patch, style: 'display: none', class: 'form-inline',
+             id: "edit_route_#{route.id}" do |f| %>
+    <div class="input-group">
+      <%= text_field_tag :name, route.name, class: 'form-control' %>
+      <%= hidden_field_tag :route_id, route.id %>
+      <div class="input-group-btn">
+        <%= submit_tag 'Применить', class: 'btn btn-primary' %>
+        <%= link_to 'Отмена', '', class: 'btn btn-default cancel', data: { route_id: route.id } %>
+      </div>
+    </div>
+<% end %>
