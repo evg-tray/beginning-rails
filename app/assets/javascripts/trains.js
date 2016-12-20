@@ -1,4 +1,4 @@
-$(document).ready(function(){
+document.addEventListener("turbolinks:load", function() {
     $('a.edit_train, a.cancel').click(function(e){
         e.preventDefault();
 
