@@ -1,0 +1,11 @@
+<%= form_tag update_number_admin_train_path(train), method: :patch, style: 'display: none', class: 'form-inline',
+             id: "edit_train_#{train.id}" do |f| %>
+    <div class="input-group">
+      <%= text_field_tag :number, train.number, class: 'form-control' %>
+      <%= hidden_field_tag :train_id, train.id %>
+      <div class="input-group-btn">
+        <%= submit_tag 'Применить', class: 'btn btn-primary' %>
+        <%= link_to 'Отмена', '', class: 'btn btn-default cancel', data: { train_id: train.id } %>
+      </div>
+    </div>
+<% end %>

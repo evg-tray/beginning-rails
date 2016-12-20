@@ -1,5 +1,5 @@
 class Admin::TrainsController < Admin::BaseController
-  before_action :set_train, only: [:show, :edit, :update, :destroy]
+  before_action :set_train, only: [:show, :edit, :update, :destroy, :update_number]
 
   def index
     @trains = Train.all
@@ -42,6 +42,11 @@ class Admin::TrainsController < Admin::BaseController
     respond_to do |format|
       format.html { redirect_to admin_trains_url, notice: 'Train was successfully destroyed.' }
     end
+  end
+
+  def update_number
+    @train.update_number(@train, params[:number])
+    redirect_to admin_trains_path
   end
 
   private
